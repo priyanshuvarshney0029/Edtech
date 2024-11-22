@@ -1,0 +1,178 @@
+<% layout('layouts/boilerplate') %>
+<style>
+ body {
+    font-family: 'Arial', sans-serif;
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+h1.display-6 {
+    text-align: center;
+    color: #00ff00; 
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+p a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+form {
+    background-color: #0b0f1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #00ff00; 
+}
+
+.form-control, .form-select, input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea {
+    border: 1px solid #00ff00;
+    color: #263868;  
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control:focus, .form-select:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+    border-color: #66bab1;
+    outline: none;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+textarea.form-control {
+    height: 80px;
+}
+
+button {
+    background-color: #9cbe9c;
+    border: none;
+    color: #0b0f1a;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #94bc94;
+}
+
+input[type="radio"] {
+    accent-color: #a5d0a5;
+}
+
+input[type="checkbox"] {
+    accent-color: #4da099;
+}
+
+label[for="terms"] {
+    font-size: 0.9em;
+}
+
+label[for="terms"] a {
+    color: #62afc9;
+}
+
+label[for="terms"] a:hover {
+    text-decoration: underline;
+}
+
+/* Center the form on the page */
+.col-md-6 {
+    background: transparent;
+}
+
+.col-md-6.mx-auto {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+
+</style>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <h1 class="display-6">Register Your Account Now</h1>
+        <p>Already Have An Account? <a href="/login">Login Now</a></p>
+        <form action="/register" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Id:</label>
+                <input class="form-control" type="email" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Name:</label>
+                <input class="form-control" type="text" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Role:</label><br>
+                <input type="radio" id="student" name="role" value="student" required>
+                <label for="student">Student</label>
+                <input type="radio" id="teacher" name="role" value="teacher" required>
+                <label for="teacher">Teacher</label>
+            </div>
+            <div class="mb-3">
+                <label for="qualification" class="form-label">Qualification:</label>
+                <select class="form-select" id="qualification" name="qualification" required>
+                    <option value="BCA">BCA</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="MCA">MCA</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="dob" class="form-label">Date Of Birth:</label>
+                <input class="form-control" type="date" id="dob" name="dob">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <textarea class="form-control" id="address" name="address"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="state" class="form-label">State:</label>
+                <select class="form-select" id="state" name="state">
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Karnataka">Karnataka</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">City:</label>
+                <input class="form-control" type="text" id="city" name="city">
+            </div>
+            <div class="mb-3">
+                <label for="pin" class="form-label">Pin:</label>
+                <input class="form-control" type="text" id="pin" name="pin">
+            </div>
+            <div class="mb-3">
+                <label for="contact" class="form-label">Contact:</label>
+                <input class="form-control" type="text" id="contact" name="contact" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input class="form-control" type="password" id="password" name="password" required>
+            </div>
+            <!-- <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" required>
+            </div> -->
+            <div class="mb-3">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I have read and agree with the <a href="/terms">Terms and Conditions</a> and <a href="/privacy">Privacy Policy</a></label>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Register Now</button>
+        </form>
+    </div>
+</div>

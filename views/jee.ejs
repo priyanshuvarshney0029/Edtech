@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE MCQ Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        a {
+        text-decoration: none;
+      }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .options label {
+            margin-bottom: 10px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <h1>JEE MCQ Questions</h1>
+
+    <form action="/submit-jee-answers" method="POST">
+        <!-- Physics Section -->
+        <div class="section">
+            <div class="section-title">Physics</div>
+            <% jee.forEach(item => { %> 
+                <% item.questions.forEach(question => { %> 
+                    <div class="question-container">
+                        <!-- Display the question text -->
+                        <div class="question"><%= question.question %></div>
+        
+                        <!-- Display the options as radio buttons -->
+                        <div class="options">
+                            <% question.options.forEach((option, index) => { %>
+                                <label><input type="radio" name="question_<%= question._id %>" value="<%= index %>" required> <%= option %></label>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% }) %>
+            <% }) %>
+            <div class="question-container">
+                <div class="question">Q1: What is the SI unit of force?</div>
+                <div class="options">
+                    <label><input type="radio" name="physics_q1" value="Newton" required> Newton</label>
+                    <label><input type="radio" name="physics_q1" value="Joule"> Joule</label>
+                    <label><input type="radio" name="physics_q1" value="Watt"> Watt</label>
+                    <label><input type="radio" name="physics_q1" value="Pascal"> Pascal</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">Q2: What is the speed of light in a vacuum?</div>
+                <div class="options">
+                    <label><input type="radio" name="physics_q2" value="3x10^6 m/s" required> 3 x 10<sup>6</sup> m/s</label>
+                    <label><input type="radio" name="physics_q2" value="3x10^8 m/s"> 3 x 10<sup>8</sup> m/s</label>
+                    <label><input type="radio" name="physics_q2" value="3x10^9 m/s"> 3 x 10<sup>9</sup> m/s</label>
+                    <label><input type="radio" name="physics_q2" value="3x10^10 m/s"> 3 x 10<sup>10</sup> m/s</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">Q2: What is the speed of light in a vacuum?</div>
+                <div class="options">
+                    <label><input type="radio" name="physics_q3" value="3x10^6 m/s" required> 3 x 10<sup>6</sup> m/s</label>
+                    <label><input type="radio" name="physics_q3" value="3x10^8 m/s"> 3 x 10<sup>8</sup> m/s</label>
+                    <label><input type="radio" name="physics_q3" value="3x10^9 m/s"> 3 x 10<sup>9</sup> m/s</label>
+                    <label><input type="radio" name="physics_q3" value="3x10^10 m/s"> 3 x 10<sup>10</sup> m/s</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chemistry Section -->
+        <div class="section">
+            <div class="section-title">Chemistry</div>
+            <div class="question-container">
+                <div class="question">Q1: What is the pH of pure water at 25°C?</div>
+                <div class="options">
+                    <label><input type="radio" name="chemistry_q1" value="7" required> 7</label>
+                    <label><input type="radio" name="chemistry_q1" value="1"> 1</label>
+                    <label><input type="radio" name="chemistry_q1" value="14"> 14</label>
+                    <label><input type="radio" name="chemistry_q1" value="0"> 0</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">Q2: Which gas is known as laughing gas?</div>
+                <div class="options">
+                    <label><input type="radio" name="chemistry_q2" value="Oxygen" required> Oxygen</label>
+                    <label><input type="radio" name="chemistry_q2" value="Carbon Dioxide"> Carbon Dioxide</label>
+                    <label><input type="radio" name="chemistry_q2" value="Nitrous Oxide"> Nitrous Oxide</label>
+                    <label><input type="radio" name="chemistry_q2" value="Ammonia"> Ammonia</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maths Section -->
+        <div class="section">
+            <div class="section-title">Maths</div>
+            <div class="question-container">
+                <div class="question">Q1: What is the derivative of sin(x)?</div>
+                <div class="options">
+                    <label><input type="radio" name="maths_q1" value="cos(x)" required> cos(x)</label>
+                    <label><input type="radio" name="maths_q1" value="-cos(x)"> -cos(x)</label>
+                    <label><input type="radio" name="maths_q1" value="sin(x)"> sin(x)</label>
+                    <label><input type="radio" name="maths_q1" value="-sin(x)"> -sin(x)</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">Q2: What is the value of log<sub>10</sub>(100)?</div>
+                <div class="options">
+                    <label><input type="radio" name="maths_q2" value="1" required> 1</label>
+                    <label><input type="radio" name="maths_q2" value="2"> 2</label>
+                    <label><input type="radio" name="maths_q2" value="3"> 3</label>
+                    <label><input type="radio" name="maths_q2" value="4"> 4</label>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-button"><a href="/submit">Submit</a></button>
+    </form>
+</body>
+</html>

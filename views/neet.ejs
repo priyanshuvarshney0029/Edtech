@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET MCQ Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        a {
+        text-decoration: none;
+      }
+
+        h1 {
+            text-align: center;
+            color: #4caf50;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #4caf50;
+            padding-bottom: 5px;
+        }
+
+        .question-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .options label {
+            margin-bottom: 10px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>NEET MCQ Questions</h1>
+
+    <form action="/submit-neet-answers" method="POST">
+        <!-- Physics Section -->
+        <div class="section">
+            <div class="section-title">Physics</div>
+            <!-- Sample Physics Questions -->
+            <% neet.forEach(item => { %> 
+                <% item.questions.forEach(question => { %> 
+                    <div class="question-container">
+                        <!-- Display the question text -->
+                        <div class="question"><%= question.question %></div>
+        
+                        <!-- Display the options as radio buttons -->
+                        <div class="options">
+                            <% question.options.forEach((option, index) => { %>
+                                <label><input type="radio" name="question_<%= question._id %>" value="<%= index %>" required> <%= option %></label>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% }) %>
+            <% }) %>
+            
+            <div class="question-container">
+                <div class="question">1. What is the SI unit of force?</div>
+                <div class="options">
+                    <label><input type="radio" name="physics_1" value="Newton" required> Newton</label>
+                    <label><input type="radio" name="physics_1" value="Joule"> Joule</label>
+                    <label><input type="radio" name="physics_1" value="Pascal"> Pascal</label>
+                    <label><input type="radio" name="physics_1" value="Watt"> Watt</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">2. Which of the following is a scalar quantity?</div>
+                <div class="options">
+                    <label><input type="radio" name="physics_2" value="Velocity" required> Velocity</label>
+                    <label><input type="radio" name="physics_2" value="Force"> Force</label>
+                    <label><input type="radio" name="physics_2" value="Energy"> Energy</label>
+                    <label><input type="radio" name="physics_2" value="Momentum"> Momentum</label>
+                </div>
+            </div>
+            <!-- Add more questions as needed -->
+        </div>
+
+        <!-- Chemistry Section -->
+        <div class="section">
+            <div class="section-title">Chemistry</div>
+            <!-- Sample Chemistry Questions -->
+            <div class="question-container">
+                <div class="question">1. What is the pH value of pure water?</div>
+                <div class="options">
+                    <label><input type="radio" name="chemistry_1" value="0" required> 0</label>
+                    <label><input type="radio" name="chemistry_1" value="7"> 7</label>
+                    <label><input type="radio" name="chemistry_1" value="14"> 14</label>
+                    <label><input type="radio" name="chemistry_1" value="10"> 10</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">2. Which gas is known as laughing gas?</div>
+                <div class="options">
+                    <label><input type="radio" name="chemistry_2" value="Oxygen" required> Oxygen</label>
+                    <label><input type="radio" name="chemistry_2" value="Nitrogen dioxide"> Nitrogen dioxide</label>
+                    <label><input type="radio" name="chemistry_2" value="Nitrous oxide"> Nitrous oxide</label>
+                    <label><input type="radio" name="chemistry_2" value="Carbon monoxide"> Carbon monoxide</label>
+                </div>
+            </div>
+            <!-- Add more questions as needed -->
+        </div>
+
+        <!-- Biology Section -->
+        <div class="section">
+            <div class="section-title">Biology</div>
+            <!-- Sample Biology Questions -->
+            <div class="question-container">
+                <div class="question">1. Which organ is known as the powerhouse of the cell?</div>
+                <div class="options">
+                    <label><input type="radio" name="biology_1" value="Nucleus" required> Nucleus</label>
+                    <label><input type="radio" name="biology_1" value="Mitochondria"> Mitochondria</label>
+                    <label><input type="radio" name="biology_1" value="Ribosome"> Ribosome</label>
+                    <label><input type="radio" name="biology_1" value="Golgi apparatus"> Golgi apparatus</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">2. What is the basic unit of life?</div>
+                <div class="options">
+                    <label><input type="radio" name="biology_2" value="Tissue" required> Tissue</label>
+                    <label><input type="radio" name="biology_2" value="Cell"> Cell</label>
+                    <label><input type="radio" name="biology_2" value="Organ"> Organ</label>
+                    <label><input type="radio" name="biology_2" value="Organ system"> Organ system</label>
+                </div>
+            </div>
+            <!-- Add more questions as needed -->
+        </div>
+
+        <button type="submit" class="submit-button"><a href="/submit">Submit</a></button>
+    </form>
+</body>
+</html>

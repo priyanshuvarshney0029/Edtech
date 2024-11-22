@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skyblue Navbar with Submenu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      /* Main Navbar styles */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #0073e6;
+        color: white;
+      }
+
+      .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+      }
+
+      .navbar .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .navbar .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+
+      .navbar .nav-links a:hover {
+        color: #87ceeb;
+      }
+
+      /* Hamburger menu for mobile */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        transition: transform 0.3s ease;
+      }
+
+      /* Secondary Navbar styles */
+      .secondary-navbar {
+        display: flex;
+        justify-content: center;
+        padding: 10px 20px;
+        color: brown;
+      }
+
+      .secondary-navbar .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+
+      .secondary-navbar .nav-links a {
+        color: chocolate;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #03a8e9;
+      }
+      .secondary-navbar a:hover {
+        color: brown;
+      }
+
+      /* Search bar styles */
+      .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        padding: 20px;
+      }
+
+      .search-bar {
+        width: 50%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 2px solid #87ceeb;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+      }
+
+      .search-bar:focus {
+        border-color: #03a8e9;
+      }
+
+      .search-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: white;
+        background-color: skyblue;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .search-button:hover {
+        background-color: #03a8e9;
+      }
+
+      /* Card styles */
+      .all-card-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 70px;
+        gap: 20px;
+        padding: 20px;
+      }
+      .card {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        text-align: center;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-details {
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .card-description {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: #666;
+      }
+
+      /* Button styles */
+      .card-buttons {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .btn {
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: skyblue;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #007acc;
+      }
+
+      .btn-secondary {
+        background-color: #ddd;
+        color: #333;
+      }
+
+      .btn-secondary:hover {
+        background-color: #bbb;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: skyblue;
+          position: absolute;
+          top: 50px;
+          right: 20px;
+          width: 150px;
+          text-align: center;
+          border-radius: 5px;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .search-bar {
+          width: 70%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Navbar -->
+    <nav class="navbar">
+      <div class="logo">MySite</div>
+      <ul class="nav-links">
+        <li><a href="/edtech">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/new">New</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Secondary Navbar -->
+    <nav class="secondary-navbar">
+      <ul class="nav-links">
+        <li><a href="/edtech">ALL</a></li>
+        <li><a href="/jee">JEE</a></li>
+        <li><a href="/neet">NEET</a></li>
+        <li><a href="/tenth">10th</a></li>
+        <li><a href="/twelfth">12th</a></li>
+      </ul>
+    </nav>
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search..." />
+      <button class="search-button">Search</button>
+    </div>
+
+    <div class="all-card-details">
+      <div class="card">
+        <img
+          src="/images/12th.jpg"
+          alt="Card Image"
+          class="card-image"
+        />
+        <div class="card-details">
+          <h3 class="card-title">12th</h3>
+          <p class="card-description">
+            Class 12 is the final stage in students high school journey, and CBSE Class 12 Board exams are an important milestone to achieve.
+          </p>
+          <div class="card-buttons">
+            <button class="btn btn-primary" ><a href="/twelfth">Click</a></button>
+            <!-- <button class="btn btn-secondary">Action 2</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="/images/10th.jpg"
+          alt="Card Image"
+          class="card-image"
+        />
+        <div class="card-details">
+          <h3 class="card-title">10th</h3>
+          <p class="card-description">
+            CBSE board 10th class result acts as the foremost parameter in deciding whether the students will be able to get a preferred stream in 11th Class.
+          </p>
+          <div class="card-buttons">
+            <button class="btn btn-primary" ><a href="/tenth">Click</a></button>
+            <!-- <button class="btn btn-secondary">Action 2</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="/images/neet.jpg"
+          alt="Card Image"
+          class="card-image"
+        />
+        <div class="card-details">
+          <h3 class="card-title">NEET</h3>
+          <p class="card-description">
+            The National Eligibility cum Entrance Test NEET (UG), formerly the AIPMT, is an Indian nationwide entrance examination conducted by the NTA.
+          </p>
+          <div class="card-buttons">
+            <button class="btn btn-primary"><a href="/neet">Click</a></button>
+            <!-- <button class="btn btn-secondary">Action 2</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="/images/jee.jpg"
+          alt="Card Image"
+          class="card-image"
+        />
+        <div class="card-details">
+          <h3 class="card-title">JEE</h3>
+          <p class="card-description">
+            The Joint Entrance Examination (JEE) is an engineering entrance assessment conducted for admission to various engineering colleges in India.
+          </p>
+          <div class="card-buttons">
+            <button class="btn btn-primary"><a href="/jee">Click</a></button>
+            <!-- <button class="btn btn-secondary">Action 2</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="/images/neet.jpg"
+          alt="Card Image"
+          class="card-image"
+        />
+        <div class="card-details">
+          <h3 class="card-title">NEET</h3>
+          <p class="card-description">
+            The National Eligibility cum Entrance Test NEET (UG), formerly the AIPMT, is an Indian nationwide entrance examination conducted by the NTA.
+          </p>
+          <div class="card-buttons">
+            <button class="btn btn-primary" ><a href="/neet">Click</a></button>
+            <!-- <button class="btn btn-secondary">Action 2</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="/images/jee.jpg"
+          alt="Card Image"
+          class="card-image"
+        />
+        <div class="card-details">
+          <h3 class="card-title">JEE</h3>
+          <p class="card-description">
+            The Joint Entrance Examination (JEE) is an engineering entrance assessment conducted for admission to various engineering colleges in India.
+          </p>
+          <div class="card-buttons">
+            <button class="btn btn-primary" ><a href="/jee">Click</a></button>
+            <!-- <button class="btn btn-secondary">Action 2</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>

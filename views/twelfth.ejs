@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12th Grade MCQ Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        a {
+        text-decoration: none;
+      }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #27ae60;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <h1>12th Grade MCQ Questions</h1>
+
+    <!-- Physics Section -->
+    <div class="section" id="physics">
+        <% twelfth.forEach(item => { %> 
+            <% item.questions.forEach(question => { %> 
+                <div class="question-container">
+                    <!-- Display the question text -->
+                    <div class="question"><%= question.question %></div>
+    
+                    <!-- Display the options as radio buttons -->
+                    <div class="options">
+                        <% question.options.forEach((option, index) => { %>
+                            <label><input type="radio" name="question_<%= question._id %>" value="<%= index %>" required> <%= option %></label>
+                        <% }) %>
+                    </div>
+                </div>
+            <% }) %>
+        <% }) %>
+        <h2>Physics</h2>
+        <div class="question">
+            <p>1. What is the unit of force?</p>
+            <div class="options">
+                <label><input type="radio" name="physics-q1" value="a"> A. Newton</label>
+                <label><input type="radio" name="physics-q1" value="b"> B. Joule</label>
+                <label><input type="radio" name="physics-q1" value="c"> C. Pascal</label>
+                <label><input type="radio" name="physics-q1" value="d"> D. Watt</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>2. What is the speed of light in a vacuum?</p>
+            <div class="options">
+                <label><input type="radio" name="physics-q2" value="a"> A. 3 × 10⁸ m/s</label>
+                <label><input type="radio" name="physics-q2" value="b"> B. 3 × 10⁶ m/s</label>
+                <label><input type="radio" name="physics-q2" value="c"> C. 3 × 10⁴ m/s</label>
+                <label><input type="radio" name="physics-q2" value="d"> D. 3 × 10¹⁰ m/s</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chemistry Section -->
+    <div class="section" id="chemistry">
+        <h2>Chemistry</h2>
+        <div class="question">
+            <p>1. What is the chemical formula of water?</p>
+            <div class="options">
+                <label><input type="radio" name="chemistry-q1" value="a"> A. H₂O</label>
+                <label><input type="radio" name="chemistry-q1" value="b"> B. CO₂</label>
+                <label><input type="radio" name="chemistry-q1" value="c"> C. O₂</label>
+                <label><input type="radio" name="chemistry-q1" value="d"> D. CH₄</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>2. What is the pH of a neutral solution?</p>
+            <div class="options">
+                <label><input type="radio" name="chemistry-q2" value="a"> A. 5</label>
+                <label><input type="radio" name="chemistry-q2" value="b"> B. 7</label>
+                <label><input type="radio" name="chemistry-q2" value="c"> C. 10</label>
+                <label><input type="radio" name="chemistry-q2" value="d"> D. 3</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Math Section -->
+    <div class="section" id="math">
+        <h2>Math</h2>
+        <div class="question">
+            <p>1. What is the derivative of x²?</p>
+            <div class="options">
+                <label><input type="radio" name="math-q1" value="a"> A. 2x</label>
+                <label><input type="radio" name="math-q1" value="b"> B. x²</label>
+                <label><input type="radio" name="math-q1" value="c"> C. x</label>
+                <label><input type="radio" name="math-q1" value="d"> D. 1</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>2. What is the value of π?</p>
+            <div class="options">
+                <label><input type="radio" name="math-q2" value="a"> A. 3.14</label>
+                <label><input type="radio" name="math-q2" value="b"> B. 2.72</label>
+                <label><input type="radio" name="math-q2" value="c"> C. 1.62</label>
+                <label><input type="radio" name="math-q2" value="d"> D. 3</label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="submit-button"><a href="/submit">Submit</a></button>
+</body>
+</html>
